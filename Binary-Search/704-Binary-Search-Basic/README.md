@@ -19,8 +19,8 @@ Since the array is **sorted**, we can find the target much faster than a linear 
 4. **Result:** If the loop ends and we haven't found the target, return `-1`.
 
 ## 📊 Complexity Analysis
-* **Time Complexity:** 𝙊(𝙡𝙤𝙜 𝙣) — The search space is halved every time.
-* **Space Complexity:** 𝙊(𝟭) — Only a few variables are used.
+* **Time Complexity:** 𝙊(𝙡𝙤𝙜 𝙣) - The search space is halved every time.
+* **Space Complexity:** 𝙊(𝟭) - Only a few variables are used.
 
 ## 💻 Code (Java)
 ```java

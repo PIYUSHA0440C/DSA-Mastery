@@ -19,8 +19,8 @@ Since the array is already sorted, all duplicates are adjacent. To allow a maxim
 4. If either condition is true, update `nums[k]` and increment `k`.
 
 ## 📊 Complexity Analysis
-- **Time Complexity:** $O(n)$ — We iterate through the array once.
-- **Space Complexity:** $O(1)$ — No extra space used, modifications are in-place.
+- **Time Complexity:** $O(n)$ - We iterate through the array once.
+- **Space Complexity:** $O(1)$ - No extra space used, modifications are in-place.
 
 ## 💻 Implementation (Java)
 ```java

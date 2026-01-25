@@ -7,7 +7,7 @@ Return the smallest character in `letters` that is lexicographically greater tha
 
 
 ## 💡 Intuition & Approach
-This problem is a variation of finding the **Ceiling** of a value in a sorted array. Since the array is sorted, Binary Search is the most efficient approach ($O(\log n)$).
+This problem is a variation of finding the **Ceiling** of a value in a sorted array. Since the array is sorted, Binary Search is the most efficient approach **O(log n)**.
 
 1. **Binary Search Logic:** We want to find the first character that is strictly greater than the `target`.
 2. **The "Wrap-Around" Condition:** The problem states that if no such character exists, we should return the first character in the array. 

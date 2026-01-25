@@ -19,8 +19,8 @@ The matrix is structured such that it behaves like a single, long sorted array. 
 4. **Early Exit:** If we finish the row and haven't found the target, return `false` (since the next row starts with even larger values).
 
 ## 📊 Complexity Analysis
-- **Time Complexity:** **O(m + n)** - We check $m$ rows and then up to **n** columns.
-- **Space Complexity:** **O(1)** - In-place search with no extra data structures.
+- **Time Complexity:** $O(m + n)$ - We check $m$ rows and then up to $n$ columns.
+- **Space Complexity:** $O(1)$ - In-place search with no extra data structures.
 
 ## 💻 Implementation (Java)
 ```java

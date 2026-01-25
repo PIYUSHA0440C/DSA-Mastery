@@ -16,8 +16,8 @@ This problem is a variation of finding the **Ceiling** of a value in a sorted ar
    - If `start` equals `len` (meaning no character was found), `start % len` becomes `0`, correctly returning the first element.
 
 ## 📊 Complexity Analysis
-* **Time Complexity:** 𝙊(𝙡𝙤𝙜 𝙣) — Standard Binary Search.
-* **Space Complexity:** 𝙊(𝟭) — No extra space used.
+* **Time Complexity:** 𝙊(𝙡𝙤𝙜 𝙣) - Standard Binary Search.
+* **Space Complexity:** 𝙊(𝟭) - No extra space used.
 
 ## 💻 Code (Java)
 ```java

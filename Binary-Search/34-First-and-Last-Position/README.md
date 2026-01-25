@@ -16,8 +16,8 @@ The goal is to find the boundaries of a target in a sorted array with duplicates
 3. **Optimization:** Added a check `if(ans[0] != -1)`. If the target doesn't exist in the first search, we skip the second search entirely, making the code more efficient for "not found" cases.
 
 ## 📊 Complexity Analysis
-* **Time Complexity:** 𝙊(𝙡𝙤𝙜 𝙣) — Still logarithmic, but optimized to skip the second pass if target is missing.
-* **Space Complexity:** 𝙊(𝟭) — Constant space usage.
+* **Time Complexity:** 𝙊(𝙡𝙤𝙜 𝙣) - Still logarithmic, but optimized to skip the second pass if target is missing.
+* **Space Complexity:** 𝙊(𝟭) - Constant space usage.
 
 ## 💻 Implementation (Java)
 ```java

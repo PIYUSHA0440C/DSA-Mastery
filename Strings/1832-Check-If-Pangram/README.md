@@ -15,8 +15,8 @@ To confirm a sentence is a pangram, we need to track if all 26 unique characters
 3. **Validation:** In the English alphabet, there are 26 letters. If the size of the Set is **26**, it means we found every letter at least once.
 
 ## 📊 Complexity Analysis
-* **Time Complexity:** 𝙊(𝙣) — Where n is the length of the string.
-* **Space Complexity:** 𝙊(𝟭) — The Set will store a maximum of 26 characters, which is constant space.
+* **Time Complexity:** 𝙊(𝙣) - Where n is the length of the string.
+* **Space Complexity:** 𝙊(𝟭) - The Set will store a maximum of 26 characters, which is constant space.
 
 ## 💻 Code (Java)
 ```java

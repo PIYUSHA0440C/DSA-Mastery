@@ -5,18 +5,21 @@ Given two integer arrays `nums1` and `nums2`, return an array of their intersect
 
 
 
+[Image of Venn diagram intersection of two sets]
+
+
 ## 💡 Intuition & Approach
-The goal is to find common elements. Using a Hash-based data structure allows us to perform lookups in constant time, making the process highly efficient.
+To find common elements efficiently, we need a way to look up numbers from one array while traversing the other. A `HashSet` provides average $O(1)$ time complexity for lookups.
 
 ### 🛠️ The Strategy:
-1. **First Set:** Store all unique elements of `nums1` into a `HashSet`. This acts as our "reference" pool.
-2. **Intersection Check:** Iterate through `nums2`. For each element, check if it exists in the first set.
-3. **Unique Results:** If a match is found, add it to a *second* `HashSet` (the results set). Using a second set automatically handles duplicates in `nums2`.
-4. **Conversion:** Convert the results set back into a primitive `int[]` for the final answer.
+1. **Reference Set:** Add all elements of `nums1` into a `HashSet`. This filters out duplicates from the first array and allows fast searching.
+2. **Comparison:** Iterate through `nums2`. If an element exists in the reference set, it's a common element.
+3. **Unique Results:** To ensure the result array has unique elements (as per the problem), we add common elements into a *second* `HashSet`.
+4. **Final Conversion:** Convert the result `HashSet` into the required `int[]` format.
 
 ## 📊 Complexity Analysis
-* **Time Complexity:** 𝙊(𝗺 + 𝗻) - We traverse both arrays once.
-* **Space Complexity:** 𝙊(𝗺 + 𝗻) - In the worst case, we store all elements in HashSets.
+* **Time Complexity:** 𝙊(𝗺 + 𝗻) - We iterate through both arrays exactly once.
+* **Space Complexity:** 𝙊(𝗺 + 𝗻) - In the worst case, we store all elements in sets.
 
 ## 💻 Implementation (Java)
 ```java
@@ -25,17 +28,17 @@ class Solution {
         HashSet<Integer> set = new HashSet<>();
         HashSet<Integer> res = new HashSet<>();
 
-        // Add all elements of nums1 to a set for O(1) lookups
+        // Load reference set
         for (int n : nums1) set.add(n);
         
-        // Find common elements
+        // Find intersection
         for (int n : nums2) {
             if (set.contains(n)) {
                 res.add(n);
             }
         }
 
-        // Convert HashSet to int array
+        // Convert to result array
         int[] ans = new int[res.size()];
         int i = 0;
         for (int n : res) ans[i++] = n;

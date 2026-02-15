@@ -16,8 +16,8 @@ The goal is to treat the integer as a collection of 32 individual bits and flip 
 
 
 ## 📊 Complexity Analysis
-* **Time Complexity:** 𝙊(𝟭) - While there is a loop, it always runs exactly 32 times, making it constant time regardless of the input value.
-* **Space Complexity:** 𝙊(𝟭) - Only one integer variable is used to store the result.
+* **Time Complexity:** 𝙊(𝟭) - The loop always runs exactly 32 times.
+* **Space Complexity:** 𝙊(𝟭) - No extra data structures used.
 
 ## 💻 Implementation (Java)
 ```java
@@ -25,15 +25,10 @@ class Solution {
     public int reverseBits(int n) {
         int result = 0;
 
-        for (int i = 0; i < 32; i++) {
-            // Extract the last bit of n
-            int bit = n & 1;
-            
-            // Shift result left and add the extracted bit
-            result = (result << 1) | bit;
-            
-            // Unsigned right-shift n to process the next bit
-            n >>>= 1;
+        for(int i = 0; i < 32; i++){
+            int bit = n & 1;                // Last bit of the current n
+            result = (result << 1) | bit;   // Store the calculation of result and the bit in result
+            n >>>= 1;                       // Unsigned right-shift so work for both positive and negative
         }
         
         return result;

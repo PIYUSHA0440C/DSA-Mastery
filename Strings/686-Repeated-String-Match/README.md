@@ -18,8 +18,8 @@ The core idea is to find the minimum repetitions of `a` that could possibly cont
 
 
 ## 📊 Complexity Analysis
-* **Time Complexity:** 𝙊(𝗻 * 𝗺) :- where $n$ is the length of `a` and $m$ is the length of `b`. `StringBuilder.indexOf()` (the underlying search) typically takes $O(\text{total\_length} \times b.length)$.
-* **Space Complexity:** 𝙊(𝗻 + 𝗺) :- To store the repeated string in the `StringBuilder`.
+* **Time Complexity:** 𝙊(𝗻 * 𝗺) - where $n$ is the length of `a` and $m$ is the length of `b`. `StringBuilder.indexOf()` (the underlying search) typically takes $O(\text{total\length} \times b.length)$.
+* **Space Complexity:** 𝙊(𝗻 + 𝗺) - To store the repeated string in the `StringBuilder`.
 
 ## 💻 Implementation (Java)
 ```java

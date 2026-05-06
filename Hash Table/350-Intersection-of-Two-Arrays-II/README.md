@@ -4,45 +4,48 @@
 Given two integer arrays `nums1` and `nums2`, return an array of their intersection. Each element in the result must appear as many times as it shows in both arrays.
 
 ## 💡 Intuition & Approach
-To handle the "count" of each number, a frequency map is the most efficient tool. We need to find the minimum frequency of each common element across both arrays.
+To handle duplicate elements in the intersection, we need to track how many times each number appears in both arrays. A Frequency Map (HashMap) is ideal for this.
 
 ### 🛠️ The Strategy:
-1. **Frequency Mapping:** Map all elements of the smaller array (to save space) to their counts in a `HashMap`.
-2. **Intersection Check:** Iterate through the second array. If an element exists in the map with a count > 0:
-   - Add it to the result list.
-   - Decrement its count in the map to "use" it.
-3. **Array Conversion:** Convert the resulting list back into a primitive integer array.
+1. **Frequency Mapping:** Iterate through the smaller array (or `nums1`) and store the count of each element in a `HashMap`.
+2. **Intersection Check:** Iterate through the second array (`nums2`).
+   - If the current number exists in the map and its count is greater than 0:
+     - Add the number to our result list.
+     - Decrement the count in the map to "consume" that occurrence.
+3. **Array Conversion:** Convert the dynamic list into the required primitive integer array.
 
 
 
 ## 📊 Complexity Analysis
-* **Time Complexity:** 𝙊(𝗻 + 𝗺) - We traverse `nums1` to build the map and `nums2` to find the intersection.
-* **Space Complexity:** 𝙊(𝗺𝗶𝗻(𝗻, 𝗺)) - The HashMap stores elements from the first array.
+* **Time Complexity:** 𝙊(𝗻 + 𝗺) - We traverse both arrays once to build the map and find the intersection.
+* **Space Complexity:** 𝙊(𝗺𝗶𝗻(𝗻, 𝗺)) - We store the frequencies of elements from one array in the HashMap.
 
 ## 💻 Implementation (Java)
 ```java
 class Solution {
     public int[] intersect(int[] nums1, int[] nums2) {
-        // Optimization: Use the smaller array for the map to save space
-        if (nums1.length > nums2.length) return intersect(nums2, nums1);
-
-        Map<Integer, Integer> map = new HashMap<>();
+        HashMap<Integer, Integer> map = new HashMap<>();
+        
+        // Build frequency map for nums1
         for (int num : nums1) {
             map.put(num, map.getOrDefault(num, 0) + 1);
         }
-
-        List<Integer> list = new ArrayList<>();
+        
+        ArrayList<Integer> list = new ArrayList<>();
+        // Check nums2 against the frequency map
         for (int num : nums2) {
-            if (map.getOrDefault(num, 0) > 0) {
+            if (map.containsKey(num) && map.get(num) > 0) {
                 list.add(num);
                 map.put(num, map.get(num) - 1);
             }
         }
 
+        // Convert list to int array
         int[] result = new int[list.size()];
         for (int i = 0; i < list.size(); i++) {
             result[i] = list.get(i);
         }
+
         return result;
     }
 }

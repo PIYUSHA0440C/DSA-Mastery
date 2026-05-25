@@ -16,8 +16,8 @@ To prevent duplicate permutations efficiently:
 This specific pruning ensures that out of a set of duplicate values, we only allow them to be picked in a strict left-to-right order, cutting off duplicate recursive branches early.
 
 ## 📊 Complexity Analysis
-* **Time Complexity:** $O(N \cdot N!)$ — There are at most $N!$ unique permutations. For each permutation, we spend $O(N)$ time copying the elements into the result list. Pruning significantly reduces the actual number of states explored compared to a full brute-force search.
-* **Space Complexity:** $O(N)$ — To maintain the recursive call stack, the `temp` path list, and the `used` array tracker.
+* **Time Complexity:** $O(N \cdot N!)$ - There are at most $N!$ unique permutations. For each permutation, we spend $O(N)$ time copying the elements into the result list. Pruning significantly reduces the actual number of states explored compared to a full brute-force search.
+* **Space Complexity:** $O(N)$ - To maintain the recursive call stack, the `temp` path list, and the `used` array tracker.
 
 ## 💻 Implementation (Java)
 ```java

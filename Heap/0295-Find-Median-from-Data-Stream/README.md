@@ -24,7 +24,7 @@ By maintaining these two heaps, the median will always reside at the roots (peek
    - If the sizes are unequal, `maxHeap` contains the extra element, making its root the exact median.
 
 ## 📊 Complexity Analysis
-* **Time Complexity:**
+* **Time Complexity:** -
   * `addNum`: O(log N) - Adding an element and rebalancing heap properties takes logarithmic time.
   * `findMedian`: O(1) - Accessing the root elements of the heap requires constant time execution.
 * **Space Complexity:** O(N) - Linear space allocated to retain all elements in memory within the two heaps.

@@ -40,9 +40,9 @@ By enforcing these constraints during construction, every generated string is gu
 
 ## 📊 Complexity Analysis
 
-- **Time Complexity:** **O(4ⁿ / √n)** — Equal to the number of valid parenthesis combinations (Catalan Number), with each combination taking O(n) to construct.
+- **Time Complexity:** **O(4ⁿ / √n)** - Equal to the number of valid parenthesis combinations (Catalan Number), with each combination taking O(n) to construct.
 
-- **Space Complexity:** **O(n)** — Due to the recursion stack (excluding the output list).
+- **Space Complexity:** **O(n)** - Due to the recursion stack (excluding the output list).
 
 ---
 

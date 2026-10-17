@@ -30,15 +30,15 @@ class Solution {
         for (int i = 0; i < len; i++) {
             int complement = target - nums[i];
             
-            // Check if we've already seen the number needed to reach target
+            // Check if we've already seen the number needed to reach target.
             if (map.containsKey(complement)) {
                 return new int[]{map.get(complement), i};
             }
 
-            // Store the current number and its index
+            // Store the current number and its index.
             map.put(nums[i], i);
         } 
 
-        return new int[]{}; // Only one valid answer exists per constraints
+        return new int[]{}; // Only one valid answer exists per constraints.
     }
 }

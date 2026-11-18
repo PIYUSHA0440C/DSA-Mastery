@@ -1,59 +1,36 @@
+
 # 501. Find Mode in Binary Search Tree (Easy)
 
 ## 📝 Problem Statement
 
-Given the root of a Binary Search Tree (BST) that may contain duplicate values, return all modes (the values that occur most frequently).
+Given the root of a Binary Search Tree (BST) that may contain duplicate values, return all modes (most frequently occurring elements) in the tree.
 
-If multiple values have the same highest frequency, return all of them in any order.
+If multiple values have the highest frequency, return all of them in any order.
 
 ## 💡 Intuition & Approach
 
-In-order traversal of a BST visits its nodes in non-decreasing order. This means duplicate values appear consecutively during traversal.
+A Binary Search Tree has an important property: its inorder traversal visits nodes in sorted, non-decreasing order.
 
-We can use this property to count consecutive occurrences without maintaining a frequency map.
+This means duplicate values appear consecutively during inorder traversal. We can use this property to count consecutive occurrences without using a HashMap.
 
-Maintain three variables:
-- `currentVal`: The previously visited node's value.
-- `currentCount`: The frequency of the current value.
-- `maxCount`: The highest frequency encountered so far.
+## 🛠️ The Strategy:
 
-Store the modes in a list and update it whenever a new maximum frequency is found or another value reaches the existing maximum.
-
-### 🛠️ The Strategy:
-
-1. Perform an in-order traversal of the BST.
-2. For each node, compare its value with `currentVal`.
-3. If both values match, increment `currentCount`; otherwise, reset it to `1`.
-4. If `currentCount` equals `maxCount`, add the current value to the modes list.
-5. If `currentCount` exceeds `maxCount`, update the maximum, clear the previous modes, and add the current value.
-6. Update `currentVal` and continue the traversal.
+1. Perform an inorder traversal of the BST to process values in sorted order.
+2. Maintain `currentVal` to track the previously visited value.
+3. Maintain `currentCount` to count consecutive occurrences of the current value.
+4. Maintain `maxCount` to track the highest frequency encountered.
+5. If the current frequency equals `maxCount`, add the value to the modes list.
+6. If the current frequency exceeds `maxCount`, update the maximum, clear the previous modes, and add the current value.
 7. Convert the modes list into an integer array and return it.
 
 ## 📊 Complexity Analysis
 
-Let `n` be the number of nodes and `h` be the height of the BST.
-
-- **Time Complexity:** O(n). Every node is visited exactly once, and each node requires constant-time processing.
-- **Space Complexity:** O(h + k), where `h` is the recursion stack space and `k` is the number of modes stored in the result list. Excluding the output list, auxiliary space is O(h).
+- **Time Complexity:** O(n) - Every node is visited exactly once during inorder traversal.
+- **Space Complexity:** O(h + k) - O(h) for the recursive call stack, where h is the tree height, and O(k) for storing the modes, where k is the number of modes.
 
 ## 💻 Implementation (Java)
 
-\`\`\`java
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
+```java
 class Solution {
     private int currentVal;
     private int currentCount = 0;
@@ -62,8 +39,10 @@ class Solution {
 
     public int[] findMode(TreeNode root) {
         inOrderTraversal(root);
+
         int[] result = new int[modes.size()];
-        for(int i = 0; i < modes.size(); i++) {
+
+        for (int i = 0; i < modes.size(); i++) {
             result[i] = modes.get(i);
         }
 
@@ -75,10 +54,13 @@ class Solution {
 
         inOrderTraversal(node.left);
 
-        currentCount = node.val == currentVal ? currentCount + 1 : 1;
+        currentCount = node.val == currentVal
+                ? currentCount + 1
+                : 1;
 
-        if (currentCount == maxCount) modes.add(node.val);
-        else if (currentCount > maxCount) {
+        if (currentCount == maxCount) {
+            modes.add(node.val);
+        } else if (currentCount > maxCount) {
             maxCount = currentCount;
             modes.clear();
             modes.add(node.val);
@@ -89,4 +71,4 @@ class Solution {
         inOrderTraversal(node.right);
     }
 }
-\`\`\`
+```

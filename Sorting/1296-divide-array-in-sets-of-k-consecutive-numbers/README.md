@@ -69,4 +69,3 @@ class Solution {
 ## Key Takeaway
 
 Combining sorting with frequency counting provides an effective way to construct consecutive groups while handling duplicate elements correctly.
-```
